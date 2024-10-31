@@ -2,12 +2,10 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Category } from "./Categories.entity";
 import { Cutout } from "./Cutouts.entity";
 import { Produce } from "./Produce.entity";
+import { CommonEntity } from "./Common.entity";
 
 @Entity({ name: "ConversionFactors" })
-export class ConversionFactor {
-  @PrimaryGeneratedColumn("uuid")
-  ID: string;
-
+export class ConversionFactor extends CommonEntity{
   @ManyToOne(() => Category, category => category.conversionFactors, { cascade: true, onDelete: "CASCADE", onUpdate: "CASCADE" })
   Category: Category;
 

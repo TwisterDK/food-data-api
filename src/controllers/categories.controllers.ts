@@ -39,9 +39,9 @@ export class MovieController {
       req.body;
     const categoryRepository = AppDataSource.getRepository(Category);
     const category = await categoryRepository.findOne({
-      where: { id },
+      where: { ID },
     });
-    category.type = type;
+    category.Type = type;
     await categoryRepository.save(category);
     return res
       .status(200)
@@ -52,7 +52,7 @@ export class MovieController {
     const { id } = req.params;
     const categoryRepository = AppDataSource.getRepository(Category);
     const category = await categoryRepository.findOne({
-      where: { id },
+      where: { ID },
     });
     await categoryRepository.remove(category);
     return res

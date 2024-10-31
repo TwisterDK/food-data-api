@@ -18,7 +18,7 @@ export class UserController {
     await userRepository.save(user);
 
     // userRepository.create({ Name, email, password });
-    const token = encrypt.generateToken({ id: user.id });
+    const token = encrypt.generateToken({ id: user.ID });
 
     return res
       .status(200)
@@ -47,7 +47,7 @@ export class UserController {
     const { name, email } = req.body;
     const userRepository = AppDataSource.getRepository(User);
     const user = await userRepository.findOne({
-      where: { id },
+      where: { ID },
     });
     user.name = name;
     user.email = email;
@@ -59,7 +59,7 @@ export class UserController {
     const { id } = req.params;
     const userRepository = AppDataSource.getRepository(User);
     const user = await userRepository.findOne({
-      where: { id },
+      where: { ID },
     });
     await userRepository.remove(user);
     res.status(200).json({ message: "ok" });

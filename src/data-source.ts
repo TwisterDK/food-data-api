@@ -2,8 +2,12 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 
 import * as dotenv from "dotenv";
-import { User } from "./entity/User.entity";
-import { Movie } from "./entity/Movies.entity";
+import { Category } from "./entity/Categories.entity";
+import { Cutout } from "./entity/Cutouts.entity";
+import { Produce } from "./entity/Produce.entity";
+import { UnitOfMeasure } from "./entity/UnitOfMeasure.entity";
+import { Currency } from "./entity/Currencies.entity";
+import { ConversionFactor } from "./entity/ConversionFactors.entity";
 
 dotenv.config();
 
@@ -19,7 +23,7 @@ export const AppDataSource = new DataSource({
   database: DB_DATABASE,
   synchronize: NODE_ENV === "dev" ? false : false,
   logging: NODE_ENV === "dev" ? false : false,
-  entities: [User, Movie],
+  entities: [Category, Cutout, Produce, UnitOfMeasure, Currency, ConversionFactor],
   migrations: [__dirname + "/migration/*.ts"],
   subscribers: [],
 });
