@@ -20,7 +20,7 @@ export class AuthController {
       if (!user || !isPasswordValid) {
         return res.status(404).json({ message: "User not found" });
       }
-      const token = encrypt.generateToken({ id: user.ID });
+      const token = encrypt.generateToken({ id: user.id });
 
       return res.status(200).json({ message: "Login successful", user, token });
     } catch (error) {
@@ -35,7 +35,7 @@ export class AuthController {
     }
     const userRepository = AppDataSource.getRepository(User);
     const user = await userRepository.findOne({
-      where: { ID: req[" currentUser"].id },
+      where: { id: req[" currentUser"].id },
     });
     return res.status(200).json({ ...user, password: undefined });
   }

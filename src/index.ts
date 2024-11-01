@@ -3,9 +3,9 @@ import * as express from "express";
 import * as dotenv from "dotenv";
 import { Request, Response } from "express";
 import { userRouter } from "./routes/user.routes";
-import { dataRouter } from "./routes/data.routes";
 import "reflect-metadata";
 import { errorHandler } from "./middleware/errorHandler";
+import { CategoryRouter } from "./routes/Categories.routes";
 dotenv.config();
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(express.json());
 const { PORT = 3000 } = process.env;
 app.use(errorHandler);
 app.use("/auth", userRouter);
-app.use("/api", dataRouter);
+app.use("/api", CategoryRouter);
 
 app.get("*", (req: Request, res: Response) => {
   res.status(505).json({ message: "Bad Request" });
