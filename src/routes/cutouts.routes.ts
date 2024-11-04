@@ -1,23 +1,23 @@
 import * as express from "express";
 import { authentification } from "../middleware/authentification";
-import { CategoryController } from "../controllers/categories.controllers";
+import { CutoutController } from "../controllers/cutouts.controller";
 import { authorization } from "../middleware/authorization";
 
 const Router = express.Router();
 
-Router.get("/", authentification, CategoryController.getAllCategories);
-Router.post("/", authentification, CategoryController.createCategory);
+Router.get("/", authentification, CutoutController.getAllCutouts);
+Router.post("/", authentification, CutoutController.createCutout);
 
 Router.put(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.updateCategory
+  CutoutController.updateCutout
 );
 Router.delete(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.deleteCategory
+  CutoutController.deleteCutout
 );
-export { Router as CategoryRouter };
+export { Router as CutoutRouter };

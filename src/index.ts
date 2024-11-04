@@ -5,7 +5,12 @@ import { Request, Response } from "express";
 import { userRouter } from "./routes/user.routes";
 import "reflect-metadata";
 import { errorHandler } from "./middleware/errorHandler";
-import { CategoryRouter } from "./routes/Categories.routes";
+import { CategoryRouter } from "./routes/categories.routes";
+import { CutoutRouter } from "./routes/cutouts.routes";
+import { CurrencyRouter } from "./routes/currencies.routes";
+import { ProduceRouter } from "./routes/produce.routes";
+import { UnitOfMeasureRouter } from "./routes/unitofmeasure.routes";
+import { ConversionFactorRouter } from "./routes/conversionfactors.router";
 dotenv.config();
 
 const app = express();
@@ -13,7 +18,12 @@ app.use(express.json());
 const { PORT = 3000 } = process.env;
 app.use(errorHandler);
 app.use("/auth", userRouter);
-app.use("/api", CategoryRouter);
+app.use("/api/categories", CategoryRouter);
+app.use("/api/currencies", CurrencyRouter);
+app.use("/api/cutouts", CutoutRouter);
+app.use("/api/produce", ProduceRouter);
+app.use("/api/unitofmeasure", UnitOfMeasureRouter);
+app.use("/api/conversionfactors", ConversionFactorRouter);
 
 app.get("*", (req: Request, res: Response) => {
   res.status(505).json({ message: "Bad Request" });

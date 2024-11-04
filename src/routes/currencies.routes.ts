@@ -1,23 +1,21 @@
 import * as express from "express";
 import { authentification } from "../middleware/authentification";
-import { CategoryController } from "../controllers/categories.controllers";
+import { CurrenciesController } from "../controllers/currencies.controller";
 import { authorization } from "../middleware/authorization";
 
 const Router = express.Router();
 
-Router.get("/", authentification, CategoryController.getAllCategories);
-Router.post("/", authentification, CategoryController.createCategory);
+Router.get("/", authentification, CurrenciesController.getAllCurrencies);
+Router.post("/", authentification, CurrenciesController.createCurrency);
 
 Router.put(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.updateCategory
-);
+  CurrenciesController.updateCurrency);
 Router.delete(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.deleteCategory
-);
-export { Router as CategoryRouter };
+  CurrenciesController.deleteCurrency);
+export { Router as CurrencyRouter };

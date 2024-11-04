@@ -1,23 +1,23 @@
 import * as express from "express";
 import { authentification } from "../middleware/authentification";
-import { CategoryController } from "../controllers/categories.controllers";
+import { ProduceController } from "../controllers/produce.controllers";
 import { authorization } from "../middleware/authorization";
 
 const Router = express.Router();
 
-Router.get("/", authentification, CategoryController.getAllCategories);
-Router.post("/", authentification, CategoryController.createCategory);
+Router.get("/", authentification, ProduceController.getAllProduce);
+Router.post("/", authentification, ProduceController.createProduce);
 
 Router.put(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.updateCategory
+  ProduceController.updateProduce
 );
 Router.delete(
   "/:id",
   authentification,
   authorization(["admin"]),
-  CategoryController.deleteCategory
+  ProduceController.deleteProduce
 );
-export { Router as CategoryRouter };
+export { Router as ProduceRouter };
