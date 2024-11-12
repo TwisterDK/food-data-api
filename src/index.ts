@@ -1,6 +1,7 @@
 import { AppDataSource } from "./data-source";
 import * as express from "express";
 import * as dotenv from "dotenv";
+import * as cors from 'cors'
 import { Request, Response } from "express";
 import { userRouter } from "./routes/user.routes";
 import "reflect-metadata";
@@ -14,6 +15,14 @@ import { ConversionFactorRouter } from "./routes/conversionfactors.router";
 dotenv.config();
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow only your React app's origin
+  methods: 'GET,POST,PUT,DELETE',  // Specify allowed methods
+  credentials: true,               // Include this if your requests use credentials (e.g., cookies)
+}));
+
 app.use(express.json());
 const { PORT = 3000 } = process.env;
 app.use(errorHandler);
