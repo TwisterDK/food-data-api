@@ -1,0 +1,20 @@
+name: Sync to Azure DevOps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Push to Azure DevOps
+        run: |
+          git remote add azure https://andersgravesen@dev.azure.com/andersgravesen/Food/_git/Food
+          git push azure main
+        env:
+          YourAzureDevOpsPAT: ${{ secrets.AZURE_DEVOPS_PAT }}
