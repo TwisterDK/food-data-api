@@ -16,5 +16,5 @@ jobs:
         env:
           AZURE_DEVOPS_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
         run: |
-          git remote add azure https://$AZURE_DEVOPS_PAT@dev.azure.com/andersgravesen/Food/_git/Food
+          git remote add azure https://$AZURE_DEVOPS_PAT@dev.azure.com/andersgravesen/Food/_git/food-data-api
           git push azure main
