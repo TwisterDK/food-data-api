@@ -3,10 +3,10 @@ import { ConversionFactor } from "./ConversionFactors.entity";
 import { CommonEntity } from "./Common.entity";
 
 @Entity({ name: "Produce" })
-@Unique(["ProduceName"])
+@Unique(["name"])
 export class Produce extends CommonEntity {
   @Column({ type: "nvarchar", length: 255 })
-  ProduceName: string;
+  name: string;
 
   @OneToMany(() => ConversionFactor, conversionFactor => conversionFactor.Produce)
   conversionFactors: ConversionFactor[];  

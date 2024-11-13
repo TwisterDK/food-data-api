@@ -5,6 +5,16 @@ import { authorization } from "../middleware/authorization";
 import { AuthController } from "../controllers/auth.controller";
 const Router = express.Router();
 
+// Middleware for logging requests  //DEBUG - to be removed
+Router.use((req, res, next) => {
+  console.log(`Incoming Request: ${req.method} ${req.originalUrl}`);
+  console.log("Headers:", req.headers);
+  console.log("Body:", req.body);
+  console.log("Params:", req.params);
+  console.log("Query:", req.query);
+  next();
+});
+
 Router.get(
   "/users",
   authentification,
