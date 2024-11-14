@@ -30,9 +30,9 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon build/index.js",
-    "start:dev": "concurrently \"tsc -w\" \"nodemon build/index.js\"",
+    "start:dev": "ts-node src/index.ts",
     "build": "tsc",
-    "start": "ts-node src/index.ts",
+    "start": "node dist/index.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration": " npm run typeorm migration:run -- -d ./src/data-source.ts",
     "generate": " npx typeorm-ts-node-commonjs migration:generate ./src/migration/schema-update -d ./src/data-source.ts"
