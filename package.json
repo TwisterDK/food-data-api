@@ -24,7 +24,8 @@
     "mssql": "^9.3.2",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "0.3.17"
+    "typeorm": "0.3.17",
+    "util": "^0.12.5"
   },
   "scripts": {
     "watch": "tsc -w",
