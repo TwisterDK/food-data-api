@@ -25,7 +25,6 @@ stages:
     - task: UseNode@2
       inputs:
         versionSpec: '20.x'
-      addToPath: true
       displayName: 'Install Node.js'
     - script: |
         npm install
