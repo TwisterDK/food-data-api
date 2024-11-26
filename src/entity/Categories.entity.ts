@@ -5,7 +5,7 @@ import { CommonEntity } from "./Common.entity";
 @Entity({ name: "Categories" })
 @Unique(["name"])
 export class Category extends CommonEntity {
-  @Column({ type: "nvarchar", length: 50 })
+  @Column({ type: "varchar", length: 50 })
   name: string;
   
   @OneToMany(() => ConversionFactor, conversionFactor => conversionFactor.Category)

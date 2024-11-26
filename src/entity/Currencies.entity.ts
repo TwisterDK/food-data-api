@@ -4,6 +4,6 @@ import { CommonEntity } from "./Common.entity";
 @Entity({ name: "Currencies" })
 @Unique(["ISO"])
 export class Currency extends CommonEntity {
-  @Column({ type: "nvarchar", length: 3 })
+  @Column({ type: "varchar", length: 3 })
   ISO: string;
 }

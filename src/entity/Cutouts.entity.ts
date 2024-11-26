@@ -5,7 +5,7 @@ import { CommonEntity } from "./Common.entity";
 @Entity({ name: "Cutouts" })
 @Unique(["name"])
 export class Cutout extends CommonEntity {
-  @Column({ type: "nvarchar", length: 255 })
+  @Column({ type: "varchar", length: 255 })
   name: string;
 
   @OneToMany(() => ConversionFactor, conversionFactor => conversionFactor.Cutout)

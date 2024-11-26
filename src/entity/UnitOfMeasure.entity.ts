@@ -5,9 +5,9 @@ import { CommonEntity } from "./Common.entity";
 @Unique(["UnitShort"])
 @Unique(["UnitFull"])
 export class UnitOfMeasure extends CommonEntity {
-  @Column({ type: "nvarchar", length: 50 })
+  @Column({ type: "varchar", length: 50 })
   UnitFull: string;
 
-  @Column({ type: "nvarchar", length: 50 })
+  @Column({ type: "varchar", length: 50 })
   UnitShort: string;
 }
