@@ -13,4 +13,5 @@ Steps to create new entity:
 3. Run `npm generate` command (generates migration file in migration folder)
 4. Run `npm migration` command (updates db)
 
-to build for docker hub : docker buildx build --platform linux/arm64 -t twisterdk/foodapi:latest --push .
+# to build for docker hub : docker buildx build --platform linux/arm64 -t twisterdk/foodapi:latest --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t twisterdk/foodapi:latest --push .

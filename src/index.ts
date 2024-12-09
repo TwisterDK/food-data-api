@@ -19,6 +19,7 @@ const app = express();
 // Determine the origin for CORS dynamically based on the environment
 const allowedOrigins = [
   'http://localhost:3000',  // For local development (React development server)
+  'http://localhost',  // For local development in docker
   'http://foodstack-react-frontend:80', // For Docker (React container name in the stack)
   'http://192.168.1.66', // If accessing the React app directly from the Raspberry Pi's IP
   'http://foodstack-react-frontend', // Container name in Docker
